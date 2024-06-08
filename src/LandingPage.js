@@ -21,6 +21,29 @@ const cardsData = [
   }
 ];
 
+const exhibitionsData =[
+{
+  title: 'Exhibition1',
+  description: 'Description for exhibition 1',
+  imageUrl: 'https://via.placeholder.com/300x200'
+},
+
+{
+  title: 'Exhibition 2',
+  description: 'Description for exhibition 2',
+  imageurl: 'https://via.placeholder.com/300x200'
+},
+
+{
+  title: 'Exhibition 3',
+  description: 'Description for exhibition 3',
+  imageUrl: 'https://via.placeholder.com/300x200'
+},
+
+
+
+];
+
 const LandingPage = () => {
   return (
     <div className="landing-page">
@@ -51,6 +74,22 @@ const LandingPage = () => {
           ))}
         </div>
       </section>
+
+      <section className="cards-section">
+        <h2>Upcoming Exhibitions</h2>
+        <div className="cards-container">
+           {exhibitionsData.map((exhibition, index) => (
+            <Card
+              key={index}
+              title={exhibition.title}
+              description={exhibition.description}
+              imageUrl={exhibition.imageUrl}
+            />
+           ))
+           }
+        </div>
+      </section>
+
     </div>
   );
 };
