@@ -66,3 +66,24 @@ body, html {
   justify-content: center;
   flex-wrap: wrap;
 }
+
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.navigation button {
+  padding: 10px 20px;
+  font-size: 1em;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.navigation button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
