@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import './LandingPage.css';
 import Card from './Card';
 import Footer from './Footer';
+import { Link } from 'react-router-dom';
 
 const exhibitionsData = [
   {
@@ -56,6 +57,8 @@ const LandingPage = () => {
             <li><a href="#about">About</a></li>
             <li><a href="#gallery">Gallery</a></li>
             <li><a href="#contact">Contact</a></li>
+            <li><Link to="/login">Login</Link></li>
+            <li><Link to="/register">Register</Link></li>
           </ul>
         </nav>
       </header>
