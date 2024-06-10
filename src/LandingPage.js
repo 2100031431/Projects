@@ -2,24 +2,7 @@
 import React, { useState } from 'react';
 import './LandingPage.css';
 import Card from './Card';
-
-const cardsData = [
-  {
-    title: 'Artwork 1',
-    description: 'Description for artwork 1',
-    imageUrl: 'https://via.placeholder.com/300x200'
-  },
-  {
-    title: 'Artwork 2',
-    description: 'Description for artwork 2',
-    imageUrl: 'https://via.placeholder.com/300x200'
-  },
-  {
-    title: 'Artwork 3',
-    description: 'Description for artwork 3',
-    imageUrl: 'https://via.placeholder.com/300x200'
-  }
-];
+import Footer from './Footer';
 
 const exhibitionsData = [
   {
@@ -46,18 +29,13 @@ const exhibitionsData = [
     title: 'Exhibition 5',
     description: 'Description for exhibition 5',
     imageUrl: 'https://via.placeholder.com/300x200'
-  },
-  {
-    title: 'Exhibition 6',
-    description: 'Description for exhibition 6',
-    imageUrl: 'https://via.placeholder.com/300x200'
-  },
-
+  }
 ];
+
+const itemsPerPage = 3;
 
 const LandingPage = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const itemsPerPage = 3;
 
   const handlePrevClick = () => {
     setCurrentIndex((prevIndex) => Math.max(prevIndex - itemsPerPage, 0));
@@ -88,7 +66,7 @@ const LandingPage = () => {
       <section className="cards-section">
         <h2>Featured Artworks</h2>
         <div className="cards-container">
-          {cardsData.map((card, index) => (
+          {exhibitionsData.slice(0, 3).map((card, index) => (
             <Card
               key={index}
               title={card.title}
@@ -124,6 +102,7 @@ const LandingPage = () => {
             ))}
         </div>
       </section>
+      <Footer />
     </div>
   );
 };
