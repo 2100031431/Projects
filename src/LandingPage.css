@@ -1,29 +1,40 @@
 /* src/LandingPage.css */
-body, html {
+
+/* Resetting default margin and padding */
+html, body {
+  height: 100%;
   margin: 0;
   padding: 0;
-  font-family: Arial, sans-serif;
-  height: 100%;
 }
 
-#root {
+/* Ensuring the wrapper covers the entire viewport */
+.wrapper {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  min-height: 100vh; /* Using viewport height (vh) instead of % */
+}
+
+/* Main content area, stretches to fill remaining space */
+.main-content {
+  flex: 1;
 }
 
 .landing-page {
-  text-align: center;
-  color: #333;
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  padding: 20px;
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
+  min-height: 100%; /* Ensures the landing-page fills the wrapper */
 }
 
 .header {
-  background-color: #000;
-  color: #fff;
-  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  color: white;
+  padding: 10px 20px;
 }
 
 .header h1 {
@@ -32,69 +43,103 @@ body, html {
 
 .header nav ul {
   list-style-type: none;
+  margin: 0;
   padding: 0;
+  display: flex;
 }
 
 .header nav ul li {
-  display: inline;
-  margin: 0 10px;
+  margin-right: 20px;
 }
 
 .header nav ul li a {
-  color: #fff;
+  color: white;
   text-decoration: none;
+  font-weight: bold;
 }
 
 .hero {
-  background: url('https://via.placeholder.com/1200x400') no-repeat center center;
-  background-size: cover;
-  color: #fff;
-  padding: 100px 20px;
+  text-align: center;
+  margin: 40px 0;
 }
 
 .hero h2 {
-  font-size: 3em;
-  margin: 0;
-}
-
-.hero p {
-  font-size: 1.5em;
+  margin-bottom: 10px;
 }
 
 .cards-section {
-  padding: 50px 20px;
-  background-color: #f9f9f9;
-  flex-grow: 1;
+  margin-bottom: 40px;
 }
 
-.cards-section h2 {
-  font-size: 2.5em;
-  margin-bottom: 20px;
+.category-section {
+  margin-bottom: 40px;
 }
 
 .cards-container {
   display: flex;
-  justify-content: center;
   flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.category-cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.card {
+  width: 300px;
+  margin: 20px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.card-content {
+  padding: 10px;
 }
 
 .navigation {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 20px;
+  text-align: center;
+  margin-top: 10px;
 }
 
 .navigation button {
   padding: 10px 20px;
-  font-size: 1em;
-  background-color: #000;
-  color: #fff;
+  margin: 0 5px;
   border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: #fff;
   cursor: pointer;
-  border-radius: 4px;
+  transition: background-color 0.3s ease;
 }
 
 .navigation button:disabled {
   background-color: #ccc;
   cursor: not-allowed;
+}
+
+.navigation button:hover {
+  background-color: #0056b3;
+}
+
+.footer {
+  background-color: #333;
+  color: white;
+  padding: 10px 20px;
 }

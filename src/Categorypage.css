@@ -1,0 +1,23 @@
+/* src/CategoryPage.css */
+
+.category-page {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+  }
+  
+  .category-page h2 {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .category-cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  
+  .category-cards-container .card {
+    width: 300px;
+    margin: 20px;
+  }
+  

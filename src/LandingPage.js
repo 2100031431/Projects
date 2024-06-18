@@ -5,35 +5,54 @@ import './LandingPage.css';
 import Card from './Card';
 import Footer from './Footer';
 
+// Example exhibitions data
 const exhibitionsData = [
   {
     title: 'Exhibition 1',
     description: 'Description for exhibition 1',
-    imageUrl: 'https://via.placeholder.com/300x200'
+    imageUrl: 'https://via.placeholder.com/300x200',
+    category: 'Nature'
   },
   {
     title: 'Exhibition 2',
     description: 'Description for exhibition 2',
-    imageUrl: 'https://via.placeholder.com/300x200'
+    imageUrl: 'https://via.placeholder.com/300x200',
+    category: 'Dance'
   },
   {
     title: 'Exhibition 3',
     description: 'Description for exhibition 3',
-    imageUrl: 'https://via.placeholder.com/300x200'
+    imageUrl: 'https://via.placeholder.com/300x200',
+    category: 'Hero Pictures'
   },
   {
     title: 'Exhibition 4',
     description: 'Description for exhibition 4',
-    imageUrl: 'https://via.placeholder.com/300x200'
-  },
-  {
-    title: 'Exhibition 5',
-    description: 'Description for exhibition 5',
-    imageUrl: 'https://via.placeholder.com/300x200'
+    imageUrl: 'https://via.placeholder.com/300x200',
+    category: 'Freedom Fighters'
   }
 ];
 
 const itemsPerPage = 3;
+
+const categories = [
+  {
+    name: 'Nature',
+    artworks: exhibitionsData.filter(item => item.category === 'Nature')
+  },
+  {
+    name: 'Dance',
+    artworks: exhibitionsData.filter(item => item.category === 'Dance')
+  },
+  {
+    name: 'Hero Pictures',
+    artworks: exhibitionsData.filter(item => item.category === 'Hero Pictures')
+  },
+  {
+    name: 'Freedom Fighters',
+    artworks: exhibitionsData.filter(item => item.category === 'Freedom Fighters')
+  }
+];
 
 const LandingPage = ({ isAuthenticated }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -83,6 +102,20 @@ const LandingPage = ({ isAuthenticated }) => {
               description={card.description}
               imageUrl={card.imageUrl}
             />
+          ))}
+        </div>
+      </section>
+      <section className="category-section">
+        <h2>Art Categories</h2>
+        <div className="category-cards-container">
+          {categories.map((category, index) => (
+            <Link key={index} to={`/category/${category.name}`}>
+              <Card
+                title={category.name}
+                description={`Explore ${category.name} artworks`}
+                imageUrl={category.artworks.length > 0 ? category.artworks[0].imageUrl : 'https://via.placeholder.com/300x200'}
+              />
+            </Link>
           ))}
         </div>
       </section>
