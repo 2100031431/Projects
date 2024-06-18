@@ -1,19 +1,24 @@
-import React, {useState} from "react";
+// src/Register.js
+import React, { useState } from 'react';
 import './Auth.css';
 
-const Register = ({onRegister}) =>{
-   const [email, setEmail] = useState('');
-   const [password, setPassword] = useState('');
-   const [confirmPassword, setConfirmPassword] = useState('');
+const Register = ({ onRegister }) => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
 
-   const handleSubmit = (e) => {
-    e.preventDefalut();
-    if (password !== confirmPassword){
-        alert("Passwords do not match");
-        return;
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (password !== confirmPassword) {
+      alert("Passwords do not match");
+      return;
     }
-    onRegister(email,password);
-   };
+    if (typeof onRegister === 'function') {
+      onRegister(email, password);
+    } else {
+      console.error('onRegister is not a function');
+    }
+  };
 
   return (
     <div className="auth-container">
@@ -45,6 +50,5 @@ const Register = ({onRegister}) =>{
     </div>
   );
 };
-
 
 export default Register;
