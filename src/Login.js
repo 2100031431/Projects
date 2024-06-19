@@ -1,14 +1,21 @@
 // src/Login.js
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Auth.css';
 
 const Login = ({ onLogin }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onLogin(email, password);
+    if (typeof onLogin === 'function') {
+      onLogin(email, password);
+      navigate('/profile');
+    } else {
+      console.error('onLogin is not a function');
+    }
   };
 
   return (
